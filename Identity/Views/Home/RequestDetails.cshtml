@@ -1,0 +1,35 @@
+﻿
+@model Identity.ViewModels.HomeRequestsViewModel
+
+@{
+    ViewBag.Title = "Request Details";
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Request.RequestName</h1>
+            </div>
+
+            <div class="card-body text-center">
+                <img class="card-img-top" src="~/images/noimage.jpg" />
+
+                <h4>Naziv zahteva : @Model.Request.RequestName</h4>
+                <h4>Sektor : @Model.Request.Department</h4>
+                <h4>Status : @Model.Request.Status</h4>
+                <h4>Datum unosa : @Model.Request.DateAccepted</h4>
+                <h4>Opis : @Model.Request.Description</h4>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-action="Request" asp-controller="Home" class="btn btn-primary">Izađi</a>
+                <a asp-action="edit" asp-controller="Home" asp-route-id="@Model.Request.Id" class="btn btn-primary">Izmeni</a>
+                <a asp-action="Delete"  asp-controller="Home" class="btn btn-danger">Izbriši</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/CustomScript.js"></script>
+}
